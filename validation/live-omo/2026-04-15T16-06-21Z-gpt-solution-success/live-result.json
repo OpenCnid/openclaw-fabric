@@ -1,0 +1,16 @@
+{
+  "taskId": "live-omo-validation",
+  "status": "succeeded",
+  "summary": "Read the input and wrote the required handoff and result artifacts.",
+  "artifacts": {
+    "handoff": "/home/molt/clawd/.tmp/openclaw-fabric-live-sandbox-20260415-110620-gpt-solution/artifacts/live-handoff.md",
+    "result": "/home/molt/clawd/.tmp/openclaw-fabric-live-sandbox-20260415-110620-gpt-solution/artifacts/live-result.json"
+  },
+  "nextStep": "Consume the written artifacts.",
+  "resumeFrom": "/home/molt/clawd/.tmp/openclaw-fabric-live-sandbox-20260415-110620-gpt-solution/artifacts/live-handoff.md",
+  "errors": [],
+  "verification": [
+    "handoff artifact exists",
+    "result artifact conforms to worker-result.schema.json shape"
+  ]
+}
