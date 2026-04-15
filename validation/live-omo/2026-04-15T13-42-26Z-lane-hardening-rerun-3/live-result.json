@@ -1,0 +1,14 @@
+{
+  "taskId": "live-omo-validation-repair",
+  "status": "failed",
+  "summary": "OMO finished without writing the required result artifact.",
+  "artifacts": {
+    "handoff": "/home/molt/clawd/.tmp/openclaw-fabric-live-sandbox-20260415-084226-lane-hardened3/artifacts/live-handoff.md",
+    "result": "/home/molt/clawd/.tmp/openclaw-fabric-live-sandbox-20260415-084226-lane-hardened3/artifacts/live-result.json"
+  },
+  "resumeFrom": "/home/molt/clawd/.tmp/openclaw-fabric-live-sandbox-20260415-084226-lane-hardened3/ses_26e9eeaffffeTWyQHOolx1gJGR",
+  "errors": [
+    "Result artifact validation failed: result.taskId mismatch",
+    "openclaw/codex-gpt-54  \n  └─ general"
+  ]
+}

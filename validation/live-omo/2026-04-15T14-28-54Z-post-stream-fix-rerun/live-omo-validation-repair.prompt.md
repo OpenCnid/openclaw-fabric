@@ -1,0 +1,67 @@
+You are executing one bounded worker task for OpenClaw.
+Do not decide follow-up workflow. Only complete the assigned task and write the declared artifacts.
+
+Task ID: live-omo-validation-repair
+Working directory: /home/molt/clawd/.tmp/openclaw-fabric-live-sandbox-20260415-092854-post-stream-fix
+
+Goal:
+Repair attempt for live-omo-validation.
+Classification: empty_turn_or_noncompliant_completion.
+Previous OMO session id: ses_26e745c9dffeHYQucBCTOT0Lod.
+A transcript snippet was captured for evidence. Use the filesystem state as the source of truth, not the prior chat text.
+Current artifact state: handoff is missing; result is present.
+Missing artifacts to repair: handoff.
+Repair rules:
+- Inspect artifacts/live-result.json first if it exists.
+- If artifacts/live-handoff.md is missing, write only that missing handoff based on the actual files and existing result.
+- If artifacts/live-result.json is missing or invalid, rewrite it to match the declared contract after repairing artifacts.
+- Do not redo the whole task if the needed information is already present on disk.
+- Prefer artifact repair over narrative explanation.
+Original task goal:
+Read inputs/source.txt. Write artifacts/live-handoff.md with what was done, what remains unresolved, and verification performed. Write artifacts/live-result.json matching the declared WorkerResult contract with status succeeded if both artifacts are written.
+
+Inputs:
+- /home/molt/clawd/.tmp/openclaw-fabric-live-sandbox-20260415-092854-post-stream-fix/inputs/source.txt
+
+Required artifacts:
+- Human handoff markdown: /home/molt/clawd/.tmp/openclaw-fabric-live-sandbox-20260415-092854-post-stream-fix/artifacts/live-handoff.md
+- Machine result json: /home/molt/clawd/.tmp/openclaw-fabric-live-sandbox-20260415-092854-post-stream-fix/artifacts/live-result.json
+
+Stop condition:
+Both declared artifacts exist and the result JSON validates.
+
+Verification expectations:
+- handoff artifact exists
+- result artifact conforms to worker-result.schema.json shape
+
+Status rules:
+- succeeded: stop condition met and required artifacts written
+- blocked: missing input, credential, clarification, or dependency
+- failed: crash, contract violation, or verification failure
+
+Result JSON contract:
+{
+  "taskId": "live-omo-validation-repair",
+  "status": "succeeded | blocked | failed",
+  "summary": "short plain summary",
+  "artifacts": {
+    "handoff": "/home/molt/clawd/.tmp/openclaw-fabric-live-sandbox-20260415-092854-post-stream-fix/artifacts/live-handoff.md",
+    "result": "/home/molt/clawd/.tmp/openclaw-fabric-live-sandbox-20260415-092854-post-stream-fix/artifacts/live-result.json"
+  },
+  "nextStep": "optional",
+  "resumeFrom": "/home/molt/clawd/.tmp/openclaw-fabric-live-sandbox-20260415-092854-post-stream-fix/ses_26e745c9dffeHYQucBCTOT0Lod",
+  "errors": [],
+  "verification": [
+    "handoff artifact exists",
+    "result artifact conforms to worker-result.schema.json shape"
+  ]
+}
+
+Handoff markdown must include:
+- what you were asked to do
+- what you actually did
+- what remains unresolved
+- smallest next step
+- verification performed
+
+If you cannot proceed, still write both artifacts and set status to blocked or failed.

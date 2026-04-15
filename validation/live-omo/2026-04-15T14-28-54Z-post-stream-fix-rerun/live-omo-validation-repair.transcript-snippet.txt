@@ -1,0 +1,8 @@
+session_id=ses_26e73efb8ffe2mRbmEUF7yD0Pj
+exit_code=0
+stdout:
+data
+{"role":"user","time":{"created":1776263368978},"tools":{"question":false},"agent":"general","model":{"providerID":"openclawraw","modelID":"openclaw/codex-gpt-54"},"summary":{"diffs":[]}}
+{"parentID":"msg_d918c1112001pV4fY7PV9nnSVR","role":"assistant","mode":"general","agent":"general","path":{"cwd":"/home/molt/clawd/.tmp/openclaw-fabric-live-sandbox-20260415-092854-post-stream-fix","root":"/home/molt/clawd"},"cost":0,"tokens":{"input":0,"output":0,"reasoning":0,"cache":{"write":0,"read":0}},"modelID":"openclaw/codex-gpt-54","providerID":"openclawraw","time":{"created":1776263369143,"completed":1776263375031},"finish":"other"}
+stderr:
+<empty>

@@ -1,0 +1,18 @@
+{
+  "taskId": "live-omo-validation-repair",
+  "cwd": "/home/molt/clawd/.tmp/openclaw-fabric-live-sandbox-20260415-085004-lane-hardened4",
+  "goal": "Repair attempt for live-omo-validation.\nClassification: empty_turn_or_noncompliant_completion.\nPrevious OMO session id: ses_26e97ee54ffeyUfCTD0TBPd047.\nA transcript snippet was captured for evidence. Use the filesystem state as the source of truth, not the prior chat text.\nCurrent artifact state: handoff is missing; result is present.\nMissing artifacts to repair: handoff.\nRepair rules:\n- Inspect artifacts/live-result.json first if it exists.\n- If artifacts/live-handoff.md is missing, write only that missing handoff based on the actual files and existing result.\n- If artifacts/live-result.json is missing or invalid, rewrite it to match the declared contract after repairing artifacts.\n- Do not redo the whole task if the needed information is already present on disk.\n- Prefer artifact repair over narrative explanation.\nOriginal task goal:\nRead inputs/source.txt. Write artifacts/live-handoff.md with what was done, what remains unresolved, and verification performed. Write artifacts/live-result.json matching the declared WorkerResult contract with status succeeded if both artifacts are written.",
+  "inputs": [
+    "/home/molt/clawd/.tmp/openclaw-fabric-live-sandbox-20260415-085004-lane-hardened4/inputs/source.txt"
+  ],
+  "writeArtifacts": {
+    "handoff": "/home/molt/clawd/.tmp/openclaw-fabric-live-sandbox-20260415-085004-lane-hardened4/artifacts/live-handoff.md",
+    "result": "/home/molt/clawd/.tmp/openclaw-fabric-live-sandbox-20260415-085004-lane-hardened4/artifacts/live-result.json"
+  },
+  "stopCondition": "Both declared artifacts exist and the result JSON validates.",
+  "verify": [
+    "handoff artifact exists",
+    "result artifact conforms to worker-result.schema.json shape"
+  ],
+  "resumeFrom": "/home/molt/clawd/.tmp/openclaw-fabric-live-sandbox-20260415-085004-lane-hardened4/ses_26e97ee54ffeyUfCTD0TBPd047"
+}

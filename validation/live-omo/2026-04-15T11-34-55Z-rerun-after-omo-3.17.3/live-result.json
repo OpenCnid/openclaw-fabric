@@ -1,0 +1,14 @@
+{
+  "taskId": "live-omo-validation",
+  "status": "failed",
+  "summary": "OMO finished without writing the required result artifact.",
+  "artifacts": {
+    "handoff": "/home/molt/clawd/.tmp/openclaw-fabric-live-sandbox-20260415-063455/artifacts/live-handoff.md",
+    "result": "/home/molt/clawd/.tmp/openclaw-fabric-live-sandbox-20260415-063455/artifacts/live-result.json"
+  },
+  "errors": [
+    "Result artifact validation failed: ENOENT: no such file or directory, open '/home/molt/clawd/.tmp/openclaw-fabric-live-sandbox-20260415-063455/artifacts/live-result.json'",
+    "OMO exited with code 1",
+    "sable-opus-46  \n  └─ \u001b[38;2;0;206;209m​Sisyphus - Ultraworker\u001b[39m  \n\n\n[session.error] Invalid `model`. Use `openclaw` or `openclaw/<agentId>`.\n\n\nSession ended with error: Invalid `model`. Use `openclaw` or `openclaw/<agentId>`.\nCheck if todos were completed before the error."
+  ]
+}

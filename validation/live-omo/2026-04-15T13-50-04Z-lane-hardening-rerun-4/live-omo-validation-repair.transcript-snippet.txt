@@ -1,0 +1,8 @@
+session_id=ses_26e97b13fffepf5fI0K7IeiqaE
+exit_code=0
+stdout:
+data
+{"role":"user","time":{"created":1776261025743},"tools":{"question":false},"agent":"general","model":{"providerID":"openclawraw","modelID":"openclaw/codex-gpt-54"},"summary":{"diffs":[]}}
+{"parentID":"msg_d91684fcf0017Boj11LF7hzSMv","role":"assistant","mode":"general","agent":"general","path":{"cwd":"/home/molt/clawd/.tmp/openclaw-fabric-live-sandbox-20260415-085004-lane-hardened4","root":"/home/molt/clawd"},"cost":0,"tokens":{"input":0,"output":0,"reasoning":0,"cache":{"write":0,"read":0}},"modelID":"openclaw/codex-gpt-54","providerID":"openclawraw","time":{"created":1776261025976,"completed":1776261029868},"finish":"other"}
+stderr:
+<empty>

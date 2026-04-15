@@ -1,0 +1,14 @@
+{
+  "taskId": "live-omo-validation-repair",
+  "status": "failed",
+  "summary": "OMO finished without writing the required result artifact.",
+  "artifacts": {
+    "handoff": "/home/molt/clawd/.tmp/openclaw-fabric-live-sandbox-20260415-092854-post-stream-fix/artifacts/live-handoff.md",
+    "result": "/home/molt/clawd/.tmp/openclaw-fabric-live-sandbox-20260415-092854-post-stream-fix/artifacts/live-result.json"
+  },
+  "resumeFrom": "/home/molt/clawd/.tmp/openclaw-fabric-live-sandbox-20260415-092854-post-stream-fix/ses_26e745c9dffeHYQucBCTOT0Lod",
+  "errors": [
+    "Result artifact validation failed: result.taskId mismatch",
+    "openclaw/codex-gpt-54  \n  └─ general  \n\n  ⚠️ Agent couldn't generate a response. Please try again.\n  └─ general · openclaw/codex-gpt-54 · 5.9s"
+  ]
+}

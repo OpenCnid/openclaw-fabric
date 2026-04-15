@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://openclaw.dev/schemas/worker-task.schema.json",
+  "title": "WorkerTask",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "taskId",
+    "cwd",
+    "goal",
+    "inputs",
+    "writeArtifacts",
+    "stopCondition"
+  ],
+  "properties": {
+    "taskId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "cwd": {
+      "type": "string",
+      "minLength": 1
+    },
+    "goal": {
+      "type": "string",
+      "minLength": 1
+    },
+    "inputs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "default": []
+    },
+    "writeArtifacts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "handoff",
+        "result"
+      ],
+      "properties": {
+        "handoff": {
+          "type": "string",
+          "minLength": 1
+        },
+        "result": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "stopCondition": {
+      "type": "string",
+      "minLength": 1
+    },
+    "verify": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "default": []
+    },
+    "resumeFrom": {
+      "type": "string"
+    },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  }
+}

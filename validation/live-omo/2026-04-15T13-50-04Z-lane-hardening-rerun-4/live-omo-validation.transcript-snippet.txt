@@ -1,0 +1,8 @@
+session_id=ses_26e97ee54ffeyUfCTD0TBPd047
+exit_code=0
+stdout:
+data
+{"role":"user","time":{"created":1776261010098},"tools":{"question":false},"agent":"​Sisyphus - Ultraworker","model":{"providerID":"openclawraw","modelID":"openclaw/sable-opus-46"},"summary":{"diffs":[]}}
+{"parentID":"msg_d916812b2001w4TTMBue2U7B3d","role":"assistant","mode":"​Sisyphus - Ultraworker","agent":"​Sisyphus - Ultraworker","path":{"cwd":"/home/molt/clawd/.tmp/openclaw-fabric-live-sandbox-20260415-085004-lane-hardened4","root":"/home/molt/clawd"},"cost":0,"tokens":{"input":0,"output":0,"reasoning":0,"cache":{"write":0,"read":0}},"modelID":"openclaw/sable-opus-46","providerID":"openclawraw","time":{"created":1776261010157,"completed":1776261014669},"finish":"other"}
+stderr:
+<empty>

@@ -1,0 +1,37 @@
+{
+  "taskId": "live-omo-validation-repair",
+  "phase": "completed",
+  "cwd": "/home/molt/clawd/.tmp/openclaw-fabric-live-sandbox-20260415-092854-post-stream-fix",
+  "command": "bunx",
+  "args": [
+    "oh-my-opencode",
+    "run",
+    "--json",
+    "-a",
+    "general",
+    "--model",
+    "openclawraw/openclaw/codex-gpt-54",
+    "--directory",
+    "/home/molt/clawd/.tmp/openclaw-fabric-live-sandbox-20260415-092854-post-stream-fix",
+    "You are executing one bounded worker task for OpenClaw.\nDo not decide follow-up workflow. Only complete the assigned task and write the declared artifacts.\n\nTask ID: live-omo-validation-repair\nWorking directory: /home/molt/clawd/.tmp/openclaw-fabric-live-sandbox-20260415-092854-post-stream-fix\n\nGoal:\nRepair attempt for live-omo-validation.\nClassification: empty_turn_or_noncompliant_completion.\nPrevious OMO session id: ses_26e745c9dffeHYQucBCTOT0Lod.\nA transcript snippet was captured for evidence. Use the filesystem state as the source of truth, not the prior chat text.\nCurrent artifact state: handoff is missing; result is present.\nMissing artifacts to repair: handoff.\nRepair rules:\n- Inspect artifacts/live-result.json first if it exists.\n- If artifacts/live-handoff.md is missing, write only that missing handoff based on the actual files and existing result.\n- If artifacts/live-result.json is missing or invalid, rewrite it to match the declared contract after repairing artifacts.\n- Do not redo the whole task if the needed information is already present on disk.\n- Prefer artifact repair over narrative explanation.\nOriginal task goal:\nRead inputs/source.txt. Write artifacts/live-handoff.md with what was done, what remains unresolved, and verification performed. Write artifacts/live-result.json matching the declared WorkerResult contract with status succeeded if both artifacts are written.\n\nInputs:\n- /home/molt/clawd/.tmp/openclaw-fabric-live-sandbox-20260415-092854-post-stream-fix/inputs/source.txt\n\nRequired artifacts:\n- Human handoff markdown: /home/molt/clawd/.tmp/openclaw-fabric-live-sandbox-20260415-092854-post-stream-fix/artifacts/live-handoff.md\n- Machine result json: /home/molt/clawd/.tmp/openclaw-fabric-live-sandbox-20260415-092854-post-stream-fix/artifacts/live-result.json\n\nStop condition:\nBoth declared artifacts exist and the result JSON validates.\n\nVerification expectations:\n- handoff artifact exists\n- result artifact conforms to worker-result.schema.json shape\n\nStatus rules:\n- succeeded: stop condition met and required artifacts written\n- blocked: missing input, credential, clarification, or dependency\n- failed: crash, contract violation, or verification failure\n\nResult JSON contract:\n{\n  \"taskId\": \"live-omo-validation-repair\",\n  \"status\": \"succeeded | blocked | failed\",\n  \"summary\": \"short plain summary\",\n  \"artifacts\": {\n    \"handoff\": \"/home/molt/clawd/.tmp/openclaw-fabric-live-sandbox-20260415-092854-post-stream-fix/artifacts/live-handoff.md\",\n    \"result\": \"/home/molt/clawd/.tmp/openclaw-fabric-live-sandbox-20260415-092854-post-stream-fix/artifacts/live-result.json\"\n  },\n  \"nextStep\": \"optional\",\n  \"resumeFrom\": \"/home/molt/clawd/.tmp/openclaw-fabric-live-sandbox-20260415-092854-post-stream-fix/ses_26e745c9dffeHYQucBCTOT0Lod\",\n  \"errors\": [],\n  \"verification\": [\n    \"handoff artifact exists\",\n    \"result artifact conforms to worker-result.schema.json shape\"\n  ]\n}\n\nHandoff markdown must include:\n- what you were asked to do\n- what you actually did\n- what remains unresolved\n- smallest next step\n- verification performed\n\nIf you cannot proceed, still write both artifacts and set status to blocked or failed."
+  ],
+  "taskFile": "/home/molt/clawd/.tmp/openclaw-fabric-live-sandbox-20260415-092854-post-stream-fix/.openclaw-fabric/tasks/live-omo-validation-repair.task.json",
+  "promptFile": "/home/molt/clawd/.tmp/openclaw-fabric-live-sandbox-20260415-092854-post-stream-fix/.openclaw-fabric/tasks/live-omo-validation-repair.prompt.md",
+  "sessionMap": "/home/molt/clawd/.tmp/openclaw-fabric-live-sandbox-20260415-092854-post-stream-fix/.openclaw-fabric/omo-session-map.json",
+  "resumeSessionId": null,
+  "timeoutMs": 180000,
+  "workerEnvNames": [
+    "OPENCLAW_WORKER_HANDOFF_FILE",
+    "OPENCLAW_WORKER_PROMPT_FILE",
+    "OPENCLAW_WORKER_RESULT_FILE",
+    "OPENCLAW_WORKER_RESUME_FROM",
+    "OPENCLAW_WORKER_STOP_CONDITION",
+    "OPENCLAW_WORKER_TASK_FILE",
+    "OPENCLAW_WORKER_TASK_ID"
+  ],
+  "startedAt": "2026-04-15T14:29:21.524Z",
+  "completedAt": "2026-04-15T14:29:38.184Z",
+  "exitCode": 0,
+  "stdout": "Auto-selected port 4097\nServer listening at http://127.0.0.1:4097\nSession: ses_26e73efb8ffe2mRbmEUF7yD0Pj\nModel: openclawraw/openclaw/codex-gpt-54\n\n\nAll tasks completed.\n{\"sessionId\":\"ses_26e73efb8ffe2mRbmEUF7yD0Pj\",\"success\":true,\"durationMs\":16418,\"messageCount\":1,\"summary\":\"⚠️ Agent couldn't generate a response. Please try again.\"}\n",
+  "stderr": "\n  openclaw/codex-gpt-54  \n  └─ general  \n\n  ⚠️ Agent couldn't generate a response. Please try again.\n  └─ general · openclaw/codex-gpt-54 · 5.9s  \n"
+}

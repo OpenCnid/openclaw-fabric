@@ -1,0 +1,17 @@
+{
+  "taskId": "live-omo-validation",
+  "cwd": "/home/molt/clawd/.tmp/openclaw-fabric-live-sandbox-20260415-092854-post-stream-fix",
+  "goal": "Read inputs/source.txt. Write artifacts/live-handoff.md with what was done, what remains unresolved, and verification performed. Write artifacts/live-result.json matching the declared WorkerResult contract with status succeeded if both artifacts are written.",
+  "inputs": [
+    "/home/molt/clawd/.tmp/openclaw-fabric-live-sandbox-20260415-092854-post-stream-fix/inputs/source.txt"
+  ],
+  "writeArtifacts": {
+    "handoff": "/home/molt/clawd/.tmp/openclaw-fabric-live-sandbox-20260415-092854-post-stream-fix/artifacts/live-handoff.md",
+    "result": "/home/molt/clawd/.tmp/openclaw-fabric-live-sandbox-20260415-092854-post-stream-fix/artifacts/live-result.json"
+  },
+  "stopCondition": "Both declared artifacts exist and the result JSON validates.",
+  "verify": [
+    "handoff artifact exists",
+    "result artifact conforms to worker-result.schema.json shape"
+  ]
+}

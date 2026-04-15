@@ -1,0 +1,16 @@
+[
+  {
+    "id": "validate-root-git-false-positive",
+    "category": "validation",
+    "messageSubstring": "Nested git repo detected in projects/openclaw-fabric/.git",
+    "diagnosis": "The validation script rejected the repository root .git directory instead of only descendant nested project repos.",
+    "fix": "Ignore ./.git while scanning and reject only child .git directories below the project root."
+  },
+  {
+    "id": "provider-boundary-term-case-sensitivity",
+    "category": "validation",
+    "messageSubstring": "Provider boundary fixture failed to reject worker lifecycle semantics.",
+    "diagnosis": "The provider boundary grep was case-sensitive, so camel-cased lifecycle identifiers such as leakedTaskId were not detected.",
+    "fix": "Use case-insensitive grep for direct Sable import and provider lifecycle scans."
+  }
+]
