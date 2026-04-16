@@ -1,16 +1,29 @@
 # OpenClaw Fabric
 
-OpenClaw Fabric is a boundary-design and validation repo for how OpenClaw should delegate bounded work through OMO, keep orchestration in OpenClaw, and keep provider/model mediation in Sable.
+> **A validation-first sandbox for the OpenClaw -> OMO bounded worker lane.**
+>
+> OpenClaw Fabric exists to prove one narrow idea well: OpenClaw should own workflow and orchestration, OMO should execute one bounded task at a time, and Sable should remain a generic provider/model control plane.
 
-This repo is intentionally focused on one narrow lane:
-- **OpenClaw** owns workflow, routing, retries, and follow-up decisions
+[Architecture & contract](./ARCHITECTURE_AND_CONTRACT.md) · [Boundary RFC](./RFC-0001-layer-boundaries.md) · [Live evidence](./validation/live-omo/README.md) · [Current status](./STATUS.md)
+
+## At a glance
+
+- **What this repo is:** boundary design, contract validation, and live evidence for the first `OpenClaw -> OMO` execution lane
+- **What this repo is not:** a production runtime, a generalized multi-lane abstraction, or a provider-orchestration layer
+- **Current posture:** experimental, evidence-driven, and intentionally narrow
+
+## Core lane
+
+- **OpenClaw** owns workflow, routing, retries, memory, and follow-up decisions
 - **OMO** executes one bounded worker task at a time
-- **Sable** stays a generic provider/model control plane, not a task orchestrator
+- **Sable** mediates model/provider access and stays free of worker lifecycle semantics
 
-## What is here
+If a change blurs those boundaries, it belongs under explicit review, not as incidental implementation drift.
 
-- `RFC-0001-layer-boundaries.md` - boundary rules for OpenClaw, OMO, and Sable
+## What is in this repo
+
 - `ARCHITECTURE_AND_CONTRACT.md` - working contract for the bounded worker lane
+- `RFC-0001-layer-boundaries.md` - boundary rules for OpenClaw, OMO, and Sable
 - `specs/openclaw-omo-bounded-worker-wrapper.md` - wrapper behavior spec
 - `schemas/worker-task.schema.json` - task contract
 - `schemas/worker-result.schema.json` - result contract
@@ -19,9 +32,9 @@ This repo is intentionally focused on one narrow lane:
 - `scripts/live-omo-validation.mjs` - durable live validation runner
 - `validation/live-omo/` - accumulated live evidence bundles
 
-## Current status
+## Current state
 
-This repo has:
+This repo already has:
 - a sketched `OpenClaw -> OMO` wrapper path
 - schema and fixture coverage for the worker contract
 - durable live-validation evidence, including successful and failed runs
@@ -29,9 +42,9 @@ This repo has:
 This repo does **not** yet have:
 - a production wrapper implementation in OpenClaw
 - a finalized decision on session mapping/resume semantics
-- locked live CLI compatibility beyond the evidence currently captured here
+- broad claims about live CLI compatibility beyond the evidence captured here
 
-## Local validation
+## Validation
 
 Run the repo validation from the repo root:
 
@@ -54,19 +67,29 @@ To run the durable live evidence path:
 node scripts/live-omo-validation.mjs
 ```
 
-Evidence lands under `validation/live-omo/<timestamp-run-id>/` and should include the prompt, task, invocation, session map, produced artifacts, and `LIVE_VALIDATION.md`.
+Evidence lands under `validation/live-omo/<timestamp-run-id>/` and should include:
+- the staged task
+- the rendered prompt
+- invocation metadata
+- session map state
+- produced artifacts
+- `LIVE_VALIDATION.md`
 
-## PR workflow
+## Pull request workflow
 
-Pull requests in this repo should:
+PRs in this repo should:
 - keep scope narrow
 - preserve the OpenClaw/OMO/Sable boundary rules
-- include validation or evidence updates when behavior changes
-- avoid inventing new lanes or abstractions before this one is proven
+- update validation or evidence when behavior changes
+- avoid introducing new lanes or abstractions before this one is proven
 
-The default CI path for PRs is `bash scripts/validate.sh`.
+The default CI path for PRs is:
 
-## Related repos / context
+```bash
+bash scripts/validate.sh
+```
+
+## Related repos
 
 - OpenClaw upstream: https://github.com/openclaw/openclaw
-- This repo: https://github.com/OpenCnid/openclaw-fabric
+- OpenClaw Fabric: https://github.com/OpenCnid/openclaw-fabric
